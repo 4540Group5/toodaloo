@@ -1,0 +1,38 @@
+{
+  "manifest_version": 2,
+  "name": "Toodaloo",
+  "description": "Displays a to-do list and allows users to add things to it.",
+  "version": "1.0",
+  "default_locale": "en",
+  "content_scripts":  [
+    {
+      "matches":["<all_urls>"],
+      "js": ["toDoList/toDoList.js"]
+    }
+  ],
+
+  "background":{
+      "scripts": ["background.js"]
+  },
+
+  "icons":{
+    "96": "icons/to-do-list-logo.png"
+  },
+
+  "permissions": [
+    "contextMenus",
+    "activeTab"
+  ],
+
+  "browser_action": {
+    "default_title" : "Toodaloo",
+    "default_icon": "icons/to-do-list-logo.png"
+  },
+  
+  "sidebar_action": {
+    "default_icon": "icons/to-do-list-logo.png",
+    "default_title" : "Toodaloo",
+    "default_panel": "toDoList/toDoList.html"
+  }
+
+}
