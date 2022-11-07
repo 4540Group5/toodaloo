@@ -117,7 +117,7 @@ button {
   color: #36bbf4;
   font-weight: 900;
   font-size: 40px;
-  text-align: center;
+  text-align: auto;
   float: left;
   cursor: pointer;
   transition: 0.3s;
@@ -130,3 +130,23 @@ button:hover {
   color: #FFFFFF;
 }
 
+.btnDrop{
+  font-size: 30px;
+  background-color:#36bbf4;
+  background: fixed;
+  padding-left: 5%;
+}
+
+.btnDrop:hover{
+  background-color: #56a9cc;
+  cursor: pointer;
+}
+
+.content{
+  display: none;
+  position: absolute;
+}
+
+.content a{
+  color: black;
+}
