@@ -4,6 +4,7 @@ refreches the page and was not able to with vanillia js
 if we want to store data we will have to use servers
 looked into free servers for begginer and aws seems like the best option
 */
+/*
 const fs = require('fs/promises');
 
 async function example() {
@@ -20,20 +21,23 @@ async function example() {
   }
 }
 example();
+*/
 //window.alert('Hello world');
-
-// Create a "close" button and append it to each list item
-var myNodelist = document.getElementsByTagName("LI");
+// Create a delete/close button and append it to each list item
+var tasks = document.getElementsByTagName("LI");
 var i;
-for (i = 0; i < myNodelist.length; i++) {
+for (i = 0; i < tasks.length; i++) {
   var span = document.createElement("SPAN");
-  var txt = document.createTextNode("\u00D7");
+  var text = document.createTextNode("\u00D7");
   span.className = "close";
-  span.appendChild(txt);
-  myNodelist[i].appendChild(span);
+  span.appendChild(text);
+  tasks[i].appendChild(span);
 }
 
-// Click on a close button to hide the current list item
+/*
+Click on a the delete button to hide the current list item from appearing in the list.
+Hides the list element by applying display none to, "deleting" it.
+*/
 var close = document.getElementsByClassName("close");
 var i;
 for (i = 0; i < close.length; i++) {
@@ -49,14 +53,14 @@ list.addEventListener('click', function(ev) {
   if (ev.target.tagName === 'LI') {
     ev.target.classList.toggle('checked');
   }
+
 }, false);
 
-
+//Get the Add button from the HTML and adds a click event listner calling the add function
 const element = document.getElementById("addBtn");
 element.addEventListener("click", myFunction);
 
 function myFunction() {
-  //window.alert('pressed');
   newElement();
 }
 
@@ -64,19 +68,19 @@ function myFunction() {
 function newElement() {
   var li = document.createElement("li");
   var inputValue = document.getElementById("myInput").value;
-  var t = document.createTextNode(inputValue);
-  li.appendChild(t);
+  var inputText = document.createTextNode(inputValue);
+  li.appendChild(inputText);
   if (inputValue === '') {
-    alert("You must write something!");
+    alert("Input is empty, try again");
   } else {
-    document.getElementById("myUL").appendChild(li);
+    document.getElementById("taskList").appendChild(li);
   }
   document.getElementById("myInput").value = "";
 
   var span = document.createElement("SPAN");
-  var txt = document.createTextNode("\u00D7");
+  var text = document.createTextNode("\u00D7");
   span.className = "close";
-  span.appendChild(txt);
+  span.appendChild(text);
   li.appendChild(span);
 
   for (i = 0; i < close.length; i++) {

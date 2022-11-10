@@ -1,6 +1,5 @@
 /*
-Called when the item has been created, or when creation failed due to an error.
-We'll just log success/failure here.
+Called when the contextMenu has been created, or when it failed due to an error.
 */
 function onCreated() {
   if (browser.runtime.lastError) {
@@ -12,15 +11,15 @@ function onCreated() {
 
 
 /*
-Called when there was an error.
-We'll just log the error here.
+Called when there is an error.
 */
 function onError(error) {
   console.log(`Error: ${error}`);
 }
 
 /*
-Create all the context menu items.
+Create the context menu and make the extension appear on the menu so user
+can open it through context menu.
 */
 
 browser.contextMenus.create({
@@ -30,19 +29,7 @@ browser.contextMenus.create({
   command: "_execute_sidebar_action"
 }, onCreated);
 
-/*
-Set a colored border on the document in the given tab.
-Note that this only work on normal web pages, not special pages
-like about:debugging.
-*/
-let blue = 'document.body.style.border =  "5px solid blue"';
-let green = 'document.body.style.border = "5px solid green"';
 
-function borderify(tabId, color) {
-  browser.tabs.executeScript(tabId, {
-    code: color
-  });
-}
 
 /*
 The click event listener, where we perform the appropriate action given the
@@ -50,15 +37,16 @@ ID of the menu item that was clicked.
 */
 browser.contextMenus.onClicked.addListener((info) => {
   switch (info.menuItemId) {
-    case "log-selection":
-      console.log(info.selectionText);
-      break;
     case "open-sidebar":
       console.log("Opening my sidebar");
       break;
   }
 });
 
+/* 
+Allows the extension to appear in the browser toolbar and opens the sidebar
+to-do list when clicking on the extension icon in the browser
+*/
 browser.browserAction.onClicked.addListener(async () => { 
   browser.browserAction.onClicked.addListener(() => {
     browser.sidebarAction.open();
