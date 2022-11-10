@@ -12,7 +12,7 @@ We opted for a simplistic design to start with because we aimed for a user-frien
 appearance. Another factor for our decision for a simple design is that we did not want 
 to focus heavily on its appearance and put more attention to its functionality for our first demo. 
 
-![alt text](ToodalooDraftDesign.png)
+![alt text](../ToodalooDraftDesign.png)
 
 **Features Built During This Phase**
 - **Sidebar to display the to-do list**
@@ -68,16 +68,16 @@ experience for the whole group.
 
 **Reflection on Teamwork/Process:**
 
-- Working as a team on a project like this was a new experience to most of us we learned because of that. Whether it be
-working together on the code of our project and that required teamwork and meetings as some members were more familiar 
-with the code languages than others.
+- Working as a team on a project like this was a new experience to most of us, we learned
+because of that. Whether it be working together on the code of our project which required
+teamwork and meetings as some members were more familiar with the code languages than others.
 
-- Another part of our process that was really was design of the code as that way if one of us was coding on a specific 
-feature we would coordinate as to plan so when one person codes one part it wouldn't break the code another person was 
-coding and this let us prevent conflicting code and saved time to fix issues we didn't cause.
+- Another part of our process that was the design of the code as that way if one of us was coding 
+on a specific feature we would coordinate as to plan. So when one person codes one part, 
+it wouldn't break the code another person was coding and this let us prevent conflicting code and saved time to fix issues we didn't cause.
 
-- One major weakness of our process would have to be documentation as we didn’t use Github and Github Desktop until 
-recently and this is important documentation used in the real workforce that we would start taking very seriously and track. 
+- One major weakness of our process would have to be documentation as we didn’t use Github 
+and Github Desktop until recently and this is an important documentation used in the real workforce that we would start taking very seriously and track.
 
 - One crucial part of our process was meeting minutes where we kept track of what we did every meeting through discord and
 created meeting minutes based of our logs.( [Meeting Minutes](https://github.com/4540Group5/toodaloo/blob/main/Meeting%20Notes.pdf))
