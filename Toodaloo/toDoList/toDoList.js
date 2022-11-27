@@ -1,67 +1,62 @@
-// Create a delete/close button and append it to each list item
-var tasks = document.getElementsByTagName("LI");
-var i;
-for (i = 0; i < tasks.length; i++) {
-  var span = document.createElement("SPAN");
-  var text = document.createTextNode("\u00D7");
-  span.className = "close";
-  span.appendChild(text);
-  tasks[i].appendChild(span);
-}
+const myLists = document.querySelector('[data-multiple-lists]')
 
-/*
-Click on a the delete button to hide the current list item from appearing in the list.
-Hides the list element by applying display none to, "deleting" it.
-*/
-var close = document.getElementsByClassName("close");
-var i;
-for (i = 0; i < close.length; i++) {
-  close[i].onclick = function() {
-    var div = this.parentElement;
-    div.style.display = "none";
+const listForm = document.querySelector('[data-list-form]')
+const listInput = document.querySelector('[data-list-input]')
+
+// Array to store todo-lists
+var lists = [{
+  id: 1,
+  name: 'list 1'
+}, {
+  id: 2,
+  name: 'list 2'
+}]
+
+/* Takes user input for a new list and creates a new list object  */
+listForm.addEventListener('submit', event =>{
+  event.preventDefault() //Prevents form from submitting itself when submitting a new list
+
+  const listName = listInput.value
+
+  // Makes sure event listener doesn't do anything if the input for a new list is empty
+  if(listName == null || listName === '') return
+  const newList = createNewList(listName)
+  listInput.value = null; //Clears out the input in the form when submitted
+
+  lists.push(newList) //Adds new list to lists array
+  render();
+})
+
+/* Clears existing lists   */
+function clearList(list){
+  while (list.firstChild){
+    list.removeChild(list.firstChild)
   }
 }
 
-// Add a "checked" symbol when clicking on a list item
-var list = document.querySelector('ul');
-list.addEventListener('click', function(ev) {
-  if (ev.target.tagName === 'LI') {
-    ev.target.classList.toggle('checked');
-  }
-
-}, false);
-
-//Get the Add button from the HTML and adds a click event listner calling the add function
-const element = document.getElementById("addBtn");
-element.addEventListener("click", myFunction);
-
-function myFunction() {
-  newElement();
+//Creates a new list 
+function createNewList(listName){
+  return {id: Date.now().toString(), 
+          name: listName, 
+          tasks: []
+        }
 }
 
-// Create a new list item when clicking on the "Add" button
-function newElement() {
-  var li = document.createElement("li");
-  var inputValue = document.getElementById("myInput").value;
-  var inputText = document.createTextNode(inputValue);
-  li.appendChild(inputText);
-  if (inputValue === '') {
-    alert("Input is empty, try again");
-  } else {
-    document.getElementById("taskList").appendChild(li);
-  }
-  document.getElementById("myInput").value = "";
+/* Displays the multiple lists and tasks corresponding to each list */
+function render(){
+  clearList(myLists)
 
-  var span = document.createElement("SPAN");
-  var text = document.createTextNode("\u00D7");
-  span.className = "close";
-  span.appendChild(text);
-  li.appendChild(span);
+  //Sets object attributes to each element for the multiple lists 
+  lists.forEach(list =>{
+    const listElement = document.createElement('li')
+    listElement.dataset.listId = list.id
+    listElement.classList.add("list-name") //Sets list element as the HTML li element with class "list-name"
+    listElement.innerText = list.name
 
-  for (i = 0; i < close.length; i++) {
-    close[i].onclick = function() {
-      var div = this.parentElement;
-      div.style.display = "none";
-    }
-  }
+    myLists.appendChild(listElement)
+  })
+
 }
+
+
+render();
