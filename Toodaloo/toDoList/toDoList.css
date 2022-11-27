@@ -238,7 +238,8 @@
   display: flex;
   justify-content: space-evenly;
   position: absolute;
-  background-color: var(--clr-delete)
+  background-color: var(--clr-delete);
+  width: 100%;
 }
 
 /* Style delete buttons*/
