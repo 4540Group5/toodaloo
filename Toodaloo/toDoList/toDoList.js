@@ -40,7 +40,7 @@ myLists.addEventListener('click', event =>{
 
 
 deleteListBtn.addEventListener('click', event =>{
-  myLists = lists.filter(list => list.id !== chosenListId)
+  lists = lists.filter(list => list.id !== chosenListId)
   chosenListId = null
   save()
   render()
