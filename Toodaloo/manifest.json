@@ -16,7 +16,7 @@
   },
 
   "icons":{
-    "96": "icons/to-do-list-logo.png"
+    "96": "icons/toodaloo-logo.png"
   },
 
   "permissions": [
@@ -26,11 +26,11 @@
 
   "browser_action": {
     "default_title" : "Toodaloo",
-    "default_icon": "icons/to-do-list-logo.png"
+    "default_icon": "icons/toodaloo-logo.png"
   },
   
   "sidebar_action": {
-    "default_icon": "icons/to-do-list-logo.png",
+    "default_icon": "icons/toodaloo-logo.png",
     "default_title" : "Toodaloo",
     "default_panel": "toDoList/toDoList.html"
   }
