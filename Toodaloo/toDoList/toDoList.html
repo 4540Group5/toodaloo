@@ -24,9 +24,7 @@
 
       <div class="task-list-container">
         <ul class="task-list" data-multiple-lists>
-          <!-- <li class="chosen-list">Work</li>
-          <li class="list-name">Grocery</li>
-          <li class="list-name">Leisure</li> -->
+
         </ul>
       </div>
       
@@ -37,8 +35,8 @@
     <div class="todo-header">
 
       <div class="todo-title-container">
-        <h2 class="list-title" data-list-name>Work</h2>
-        <p class="task-count" data-list-count>3 tasks remaining</p>
+        <h2 class="list-title" data-list-name></h2>
+        <p class="task-count" data-list-count></p>
       </div>
       
       <div class="task-form">
@@ -58,11 +56,23 @@
 
     <div class="todo-list-body">
       <div class="tasks" data-tasks></div>
-      <div class="delete">
-        <button class="delete-btn">Delete Checked Tasks</button>
+      <div class="delete-section">
+        <button class="delete-btn" data-delete-checked-tasks-btn>Delete Checked Tasks</button>
         <button class="delete-btn" data-delete-list-btn>Delete List</button>
       </div>
+      
     </div>
+  </div>
+
+  <div class="theme-section">
+    <div class="change-theme-text">Theme Colors</div> 
+    <select class="theme-dropdown" data-theme-dropdown>
+      <option value="sky">Sky</option>
+      <option value="prairie">Prairie</option>
+      <option value="raven">Raven</option>
+      <option value="light">Light</option>
+      <option value="dark">Dark</option>
+    </select>
   </div>
 
   <template id="task-template">

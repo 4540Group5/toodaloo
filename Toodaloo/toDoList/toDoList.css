@@ -1,12 +1,17 @@
 :root{
   --clr-main-header: #36bbf4;
   --clr-main-header-content: #FFFFFF;
-  --clr-todo-header: #F9F9F9;
+  --clr-todo-header: #EEEEEE;
   --clr-todo-header-content: #000000;
   --clr-task: #EEEEEE;
-  --clr-task-nthChild: #f9f9f9;
+  --clr-task-nthChild: #F9F9F9;
   --clr-task-checkbox: #36bbf4;
-  --clr-delete: #36bbf4;
+  --clr-label-text: #000000;
+  --clr-delete-section: #36bbf4;
+  --clr-delete-btn-text: #FFFFFF;
+  --clr-theme-section: #EEEEEE;
+  --clr-theme-dropdown: #36bbf4;
+  --clr-change-theme-text: #000000; 
 }
 
 * {
@@ -15,7 +20,7 @@
 
 /* Style the main header */
 .main-header {
-  background-color: #36bbf4;
+  background-color: var(--clr-main-header);
   padding: 0.3rem 2rem;
   text-align: center;
   display: flexbox;
@@ -44,6 +49,7 @@
   background-color: transparent;
   border: 0;
   border-bottom: 1px  solid var(--clr-main-header-content);
+  color: var(--clr-main-header-content);
   width: 75%;
   height: 2.3rem;
   padding: 10px;
@@ -121,13 +127,14 @@
   padding-left: 1rem;
   font-weight: 700;
   font-size: 1.5rem;
-  
+  color: var(--clr-todo-header-content);
 }
 
 .task-count{
   margin: 5px 0 0 0;
   font-size: 1rem;
   margin-left: 2rem;
+  color: var(--clr-todo-header-content);
 }
 
 /* Style the new task input */
@@ -136,6 +143,7 @@
   background-color: transparent;
   border: 0;
   border-bottom: 1px  solid var(--clr-todo-header-content);
+  color: var(--clr-todo-header-content);
   width: 75%;
   height: 1.3rem;
   padding: 10px;
@@ -153,7 +161,7 @@
   width: 2.3rem;
   height: 1.3rem; 
   background-color: transparent;
-  color: #000000;
+  color: var(--clr-todo-header-content);
   font-weight: 900;
   font-size: 15px;
   text-align: center;
@@ -172,6 +180,7 @@
   position: absolute;
 }
 
+/* Style tasks*/
 .task{
   position: relative;
   padding: 10px 8px 10px 8px;
@@ -180,6 +189,7 @@
 
 }
 
+/* Style tasks that in odd number ordering */
 .task:nth-child(odd) {
   background-color: var(--clr-task-nthChild);
 }
@@ -189,17 +199,10 @@
   display: flex;
   align-items: center;
   position: relative;
-  font-size: 12px;
+  font-size: 11px;
+  color: var(--clr-label-text);
 }
 
-/* .task label::after{
-  content: "";
-  position: absolute;
-  right: 0;
-  left: 0;
-  height: 2px;
-  background-color: #000000;
-} */
 
 /* Style checkbox */
 .circle-checkbox{
@@ -234,18 +237,17 @@
 }
 
 /* Style delete div*/
-.delete{
+.delete-section{
   display: flex;
   justify-content: space-evenly;
-  position: absolute;
-  background-color: var(--clr-delete);
-  width: 100%;
+  position: relative;
+  background-color: var(--clr-delete-section);
 }
 
 /* Style delete buttons*/
 .delete-btn{
   background-color: transparent;
-  color: var(--clr-main-header-content);
+  color: var(--clr-delete-btn-text);
   padding: 0.3rem;
   border: none;
   font-size: 12px;
@@ -253,6 +255,36 @@
   cursor: pointer;
 }
 
+/* Style delete buttons when hovered*/
 .delete-btn:hover{
   opacity: 0.7;
 }
+
+.theme-section{
+  display: flex;
+  justify-content: space-evenly;
+  position: relative;
+  background-color: var(--clr-theme-section);
+  padding: 0.5rem;
+}
+
+.theme-dropdown{
+  cursor: pointer;
+  background-color: var(--clr-theme-dropdown);
+  color: var(--clr-main-header-content);
+  padding: 0 1rem 0 1rem;
+  border: none;
+  font-size: 13px;
+}
+
+.change-theme-text{
+  color: var(--clr-change-theme-text);
+  padding: 0 1rem 0 0.5rem;
+  border: none;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* .change-theme-btn:hover{
+  background-color: var(--clr-change-theme-btn-hover);
+} */
